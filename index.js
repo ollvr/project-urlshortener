@@ -29,7 +29,7 @@ app.get('/api/hello', function(req, res) {
 app.post('/api/shorturl', (req, res) => {
   const { url } = req.body; 
   
-  // Check if the URL is valid
+ 
   if (!validUrl.isWebUri(url)) {
     return res.json({ error: 'invalid url' });
   }
@@ -41,7 +41,7 @@ app.post('/api/shorturl', (req, res) => {
   return res.json({ original_url: url, short_url: shortUrl });
 });
 
-// GET endpoint to redirect to the original URL
+
 app.get('/api/shorturl/:shortUrl', (req, res) => {
   const shortUrl = parseInt(req.params.shortUrl, 10);
 
